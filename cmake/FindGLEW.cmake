@@ -74,6 +74,7 @@ if (${CMAKE_HOST_UNIX})
             GLEW glew
         PATHS
             ${GLEW_LOCATION}/lib
+            ${GLEW_LOCATION}/lib64
             $ENV{GLEW_LOCATION}/lib
             /usr/lib64
             /usr/lib
@@ -84,6 +85,9 @@ if (${CMAKE_HOST_UNIX})
             /opt/local/lib
             NO_DEFAULT_PATH
             DOC "The GLEW library")
+   if (GLEW_LIBRARY)
+      set(GLEW_LIBRARY ${GLEW_LIBRARY} Xi)
+   endif()
 endif ()
 
 if (GLEW_INCLUDE_DIR AND EXISTS "${GLEW_INCLUDE_DIR}/GL/glew.h")
